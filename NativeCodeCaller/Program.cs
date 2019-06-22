@@ -15,44 +15,11 @@ namespace NativeCodeCaller
 			string textToDisplay = "text to display éèà";
 
 			Console.WriteLine($"Displaying from managed code: {textToDisplay}");
-			//DllImportExample.DisplayTextWithCallee(textToDisplay);
 
 			NativeCaller nativeCaller = new NativeCaller(textToDisplay);
 			nativeCaller.CallNativeCode();
 
-
-
-
-
-			//string returnedString = string.Empty;
-
-			//unsafe
-			//{
-			//	char* unmanagedString = stackalloc char[textToDisplay.Length + 1];
-			//	IntPtr unmanagedStringPtr = (IntPtr)unmanagedString;
-			//	DllImportExample.DisplayTextWithCalleeAndReturnCopy(textToDisplay, unmanagedStringPtr);
-			//	returnedString = Marshal.PtrToStringUni(unmanagedStringPtr);
-
-			//	//fixed (char* unmanagedString = new char[textToDisplay.Length + 1])
-			//	//{
-			//	//	IntPtr unmanagedStringPtr = (IntPtr)unmanagedString;
-			//	//	DllImportExample.DisplayTextWithCalleeAndReturnCopy(textToDisplay, unmanagedStringPtr);
-			//	//	returnedString = Marshal.PtrToStringUni(unmanagedStringPtr);
-			//	//}
-			//}
-
-			//Console.WriteLine($"Returned string: {returnedString}");
-
 			Console.ReadLine();
 		}
 	}
-
-	//public class DllImportExample
-	//{
-	//	[DllImport("NativeCallee.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
-	//	public extern static void DisplayTextWithCallee(string textToDisplay);
-
-	//	[DllImport("NativeCallee.dll", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
-	//	public extern static void DisplayTextWithCalleeAndReturnCopy(string textToDisplay, IntPtr returnedString);
-	//}
 }
